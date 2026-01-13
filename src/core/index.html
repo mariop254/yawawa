@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Mpinda Evata - RH, Financeiro e Vendas</title>
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../styles/core/base.css">
+    <link rel="stylesheet" href="../styles/core/layout.css">
+    <link rel="stylesheet" href="../styles/core/components.css">
+    
+    <!-- Module Styles -->
+    <link rel="stylesheet" href="../styles/modules/rh.css">
+    <link rel="stylesheet" href="../styles/modules/financeiro.css">
+    <link rel="stylesheet" href="../styles/modules/vendas.css">
+    <link rel="stylesheet" href="../styles/modules/modals.css">
+    
+    <!-- External Dependencies -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-bar">
+        <div class="logo">
+            <img src="../assets/logo.png" alt="Logo Mpinda Evata" class="brand-logo" 
+                 onerror="this.onerror=null;this.src=this.dataset.fallback;" 
+                 data-fallback='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><rect width="28" height="28" rx="6" ry="6" fill="%2316213e"/><path d="M4 18l6-7 4 4 6-8" stroke="%234ecdc4" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20.5" cy="7.5" r="2.2" fill="%2310b981"/></svg>' />
+            <span>Mpinda Evata</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#rh" class="nav-item active" id="rh-nav" data-section="rh"><i class="fas fa-users"></i> RH</a></li>
+                <li><a href="#financeiro" class="nav-item" id="financeiro-nav" data-section="financeiro"><i class="fas fa-wallet"></i> Financeiro</a></li>
+                <li><a href="#vendas" class="nav-item" id="vendas-nav" data-section="vendas"><i class="fas fa-chart-bar"></i> Vendas</a></li>
+                <li><a href="#compras" class="nav-item" id="compras-nav" data-section="compras"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+                <li><a href="#servicos" class="nav-item" id="servicos-nav" data-section="servicos"><i class="fas fa-cogs"></i> Serviços</a></li>
+                <li><a href="#contabilidade" class="nav-item" id="contabilidade-nav" data-section="contabilidade"><i class="fas fa-calculator"></i> Contabilidade</a></li>
+                <li><a href="#configuracoes" class="nav-item" id="configuracoes-nav" data-section="configuracoes"><i class="fas fa-cog"></i> Configurações</a></li>
+            </ul>
+        </nav>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar...">
+                <button id="searchButton" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+        
+        <div class="user-info">
+            <i class="fas fa-user"></i>
+            <span>Usuário</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-panel">
+        <!-- Dashboard Principal -->
+        <div class="dashboard-main" id="dashboard-main">
+            <div class="dashboard-grid">
+                <!-- Coluna RH -->
+                <div class="column">
+                    <h2><i class="fas fa-users"></i> Recursos Humanos</h2>
+                    <div id="rh-dashboard-cards"></div>
+                </div>
+
+                <!-- Coluna Financeiro -->
+                <div class="column">
+                    <h2><i class="fas fa-chart-pie"></i> Financeiro</h2>
+                    <div id="financeiro-dashboard-cards"></div>
+                </div>
+
+                <!-- Coluna Vendas -->
+                <div class="column">
+                    <h2><i class="fas fa-shopping-cart"></i> Vendas</h2>
+                    <div id="vendas-dashboard-cards"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seções dos Módulos -->
+        <div id="module-sections"></div>
+    </main>
+
+    <!-- Modal Container -->
+    <div class="modal-container" id="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Título do Modal</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="../js/core/app.js"></script>
+    <script src="../js/core/navigation.js"></script>
+    <script src="../js/core/modal.js"></script>
+    <script src="../js/core/search.js"></script>
+    
+    <!-- Module Scripts -->
+    <script src="../js/modules/rh.js"></script>
+    <script src="../js/modules/financeiro.js"></script>
+    <script src="../js/modules/vendas.js"></script>
+    <script src="../js/modules/charts.js"></script>
+    
+    <!-- Utils -->
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/data.js"></script>
+</body>
+</html>

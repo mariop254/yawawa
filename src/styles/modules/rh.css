@@ -1,0 +1,353 @@
+/* RH Module Styles */
+
+/* Availability Card */
+.availability-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    min-height: 120px;
+}
+
+.availability-info {
+    flex: 1;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.availability-info .metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    min-height: 30px;
+    background: none;
+    margin-bottom: var(--spacing-sm);
+}
+
+.availability-info .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.availability-info .value {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-left: var(--spacing-md);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Performance Card */
+.performance-card .card-content {
+    min-height: 120px;
+    height: auto;
+}
+
+.performance-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.metric-highlight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    min-height: 50px;
+}
+
+.metric-highlight .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.metric-highlight .value {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 var(--spacing-md);
+    min-width: 60px;
+    text-align: center;
+}
+
+/* RH Menu Styles */
+.rh-menu-container {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.rh-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.menu-section {
+    background: var(--background-dark);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--border-radius-md);
+    min-width: 200px;
+    box-shadow: var(--shadow-md);
+}
+
+.menu-section-header {
+    background: var(--primary-color);
+    color: #0f1419;
+    padding: 0.75rem var(--spacing-md);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.menu-section-header i {
+    font-size: 1rem;
+}
+
+.menu-items {
+    padding: var(--spacing-sm);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0.75rem;
+    margin: 0.25rem 0;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.menu-item:hover {
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--primary-color);
+}
+
+.menu-item.active {
+    background: rgba(78, 205, 196, 0.2);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+}
+
+.menu-item.dropdown {
+    justify-content: space-between;
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform var(--transition-fast);
+}
+
+.menu-item.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    margin-left: var(--spacing-md);
+    border-left: 2px solid rgba(78, 205, 196, 0.3);
+    padding-left: var(--spacing-sm);
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.4rem 0.75rem;
+    margin: 0.2rem 0;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.dropdown-item:hover {
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--primary-color);
+}
+
+/* RH Content Area */
+.rh-content-area {
+    background: var(--background-dark);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.content-placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.content-placeholder i {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.content-placeholder h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.content-placeholder p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* RH Stats Grid */
+.rh-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+    background: var(--secondary-color);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.2);
+    border-color: var(--primary-color);
+}
+
+.stat-card h4 {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-trend {
+    font-size: 0.8rem;
+    padding: 0.25rem var(--spacing-sm);
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* RH Actions */
+.rh-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive RH Menu */
+@media (max-width: 1200px) {
+    .rh-menu {
+        justify-content: center;
+    }
+    
+    .menu-section {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rh-menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .menu-section {
+        min-width: auto;
+    }
+    
+    .rh-menu-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .menu-section-header {
+        padding: var(--spacing-sm) 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .menu-item {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .rh-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .rh-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .rh-content-area {
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-sm);
+    }
+    
+    .content-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .content-placeholder h3 {
+        font-size: 1.1rem;
+    }
+    
+    .content-placeholder p {
+        font-size: 0.8rem;
+    }
+    
+    .availability-card {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}

@@ -1,0 +1,356 @@
+/* Cards Base */
+.card {
+    background: var(--secondary-color);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: visible;
+    min-height: fit-content;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(78, 205, 196, 0.4);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    min-height: 40px;
+}
+
+.card-header h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+}
+
+.card-header i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-left: var(--spacing-md);
+}
+
+.card-content {
+    color: #e0e0e0;
+    min-height: fit-content;
+}
+
+/* Gauge Component */
+.gauge-container {
+    text-align: center;
+    min-width: 120px;
+}
+
+.gauge {
+    width: 120px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 60px 60px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+}
+
+.gauge-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--percentage);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #44a08d 100%);
+    border-radius: 60px 60px 0 0;
+    transition: height var(--transition-slow);
+}
+
+.gauge-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Metric Items */
+.metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+}
+
+.metric-item:last-child {
+    margin-bottom: 0;
+}
+
+.metric-item .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.metric-item .value {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-left: var(--spacing-md);
+    min-width: 80px;
+    text-align: right;
+}
+
+.metric-item .trend {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Trend Indicators */
+.trend.positive {
+    background: rgba(78, 205, 196, 0.2);
+    color: var(--primary-color);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.trend.negative {
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--danger-color);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.trend.neutral {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning-color);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #0f1419;
+}
+
+.btn-primary:hover {
+    background: #3bb5ac;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #e55555;
+    transform: translateY(-1px);
+}
+
+.btn.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.btn.large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+/* Action Button */
+.action-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #44a08d 100%);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem 1.5rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0 auto;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+}
+
+/* Back Button */
+.back-btn {
+    background: rgba(78, 205, 196, 0.2);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem 1.2rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.back-btn:hover {
+    background: rgba(78, 205, 196, 0.3);
+    border-color: rgba(78, 205, 196, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 400px;
+    border-left: 4px solid var(--primary-color);
+    animation: slideInRight var(--transition-normal);
+}
+
+.notification.success {
+    border-left-color: var(--success-color);
+}
+
+.notification.warning {
+    border-left-color: var(--warning-color);
+}
+
+.notification.error {
+    border-left-color: var(--danger-color);
+}
+
+.close-notification {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-normal);
+    margin-left: auto;
+}
+
+.close-notification:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--secondary-color);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: border-color var(--transition-normal);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Status Pills */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-pill.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success-color);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-pill.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning-color);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-pill.error {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger-color);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-pill.info {
+    background: rgba(78, 205, 196, 0.2);
+    color: var(--primary-color);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+}

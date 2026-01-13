@@ -1,0 +1,26 @@
+{
+  "name": "mpinda-evata-auth-api",
+  "version": "1.0.0",
+  "description": "API de Autenticação para Dashboard Mpinda Evata",
+  "main": "auth-api.js",
+  "scripts": {
+    "start": "node auth-api.js",
+    "dev": "nodemon auth-api.js",
+    "install-deps": "npm install express sqlite3 bcrypt jsonwebtoken express-rate-limit cors",
+    "setup": "npm run install-deps && npm start"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.1.5",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["authentication", "dashboard", "api", "jwt", "bcrypt"],
+  "author": "Mpinda Evata",
+  "license": "MIT"
+}

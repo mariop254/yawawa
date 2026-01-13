@@ -1,0 +1,327 @@
+{
+  "dashboard": {
+    "lastUpdate": "2024-01-15T10:30:00Z",
+    "period": "2024-01",
+    "company": "Empresa Exemplo Ltda"
+  },
+  "rh": {
+    "availability": {
+      "current": 87,
+      "previous": 85,
+      "trend": "positive",
+      "details": {
+        "present": 87,
+        "absent": 13,
+        "total": 100
+      }
+    },
+    "teamPerformance": [
+      {
+        "team": "Equipe A",
+        "performance": 85,
+        "target": 80,
+        "status": "on-track"
+      },
+      {
+        "team": "Equipe B",
+        "performance": 92,
+        "target": 85,
+        "status": "exceeding"
+      },
+      {
+        "team": "Equipe C",
+        "performance": 78,
+        "target": 80,
+        "status": "below-target"
+      },
+      {
+        "team": "Equipe D",
+        "performance": 88,
+        "target": 85,
+        "status": "on-track"
+      }
+    ],
+    "turnover": {
+      "current": 5.2,
+      "previous": 6.0,
+      "trend": "positive",
+      "details": {
+        "hires": 12,
+        "departures": 8,
+        "netChange": 4
+      }
+    },
+    "productivityRanking": [
+      {
+        "rank": 1,
+        "name": "João Silva",
+        "score": 95,
+        "department": "Vendas",
+        "previousRank": 2
+      },
+      {
+        "rank": 2,
+        "name": "Maria Santos",
+        "score": 92,
+        "department": "Marketing",
+        "previousRank": 1
+      },
+      {
+        "rank": 3,
+        "name": "Pedro Costa",
+        "score": 89,
+        "department": "TI",
+        "previousRank": 5
+      }
+    ]
+  },
+  "finance": {
+    "overview": {
+      "revenue": {
+        "current": 2500000,
+        "previous": 2230000,
+        "trend": "positive",
+        "percentage": 12.1
+      },
+      "expenses": {
+        "current": 1800000,
+        "previous": 1667000,
+        "trend": "negative",
+        "percentage": 8.0
+      },
+      "profit": {
+        "current": 700000,
+        "previous": 563000,
+        "trend": "positive",
+        "percentage": 18.3
+      }
+    },
+    "cashflow": {
+      "months": ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
+      "inflows": [120000, 135000, 142000, 138000, 156000, 148000],
+      "outflows": [98000, 112000, 108000, 115000, 125000, 118000]
+    },
+    "topExpenses": [
+      {
+        "category": "Folha de Pagamento",
+        "amount": 450000,
+        "percentage": 25.0,
+        "trend": "stable"
+      },
+      {
+        "category": "Fornecedores",
+        "amount": 320000,
+        "percentage": 17.8,
+        "trend": "increasing"
+      },
+      {
+        "category": "Infraestrutura",
+        "amount": 280000,
+        "percentage": 15.6,
+        "trend": "stable"
+      },
+      {
+        "category": "Marketing",
+        "amount": 220000,
+        "percentage": 12.2,
+        "trend": "decreasing"
+      },
+      {
+        "category": "TI",
+        "amount": 180000,
+        "percentage": 10.0,
+        "trend": "stable"
+      }
+    ],
+    "revenueComparison": {
+      "current": [210000, 230000, 240000, 220000, 260000, 250000],
+      "previous": [190000, 210000, 220000, 200000, 230000, 220000]
+    }
+  },
+  "sales": {
+    "totalSales": {
+      "current": 1200000,
+      "previous": 1043000,
+      "trend": "positive",
+      "percentage": 15.0,
+      "breakdown": {
+        "online": 450000,
+        "offline": 750000
+      }
+    },
+    "averageTicket": {
+      "current": 85,
+      "previous": 79,
+      "trend": "positive",
+      "percentage": 7.6,
+      "transactions": 14118
+    },
+    "topProducts": [
+      {
+        "name": "Produto A",
+        "sales": 45000,
+        "units": 529,
+        "category": "Eletrônicos"
+      },
+      {
+        "name": "Produto B",
+        "sales": 38000,
+        "units": 422,
+        "category": "Vestuário"
+      },
+      {
+        "name": "Produto C",
+        "sales": 32000,
+        "units": 356,
+        "category": "Casa"
+      },
+      {
+        "name": "Produto D",
+        "sales": 28000,
+        "units": 311,
+        "category": "Esportes"
+      },
+      {
+        "name": "Produto E",
+        "sales": 25000,
+        "units": 278,
+        "category": "Livros"
+      }
+    ],
+    "topSalespeople": [
+      {
+        "rank": 1,
+        "name": "Ana Oliveira",
+        "sales": 180000,
+        "target": 150000,
+        "achievement": 120.0,
+        "region": "Sul"
+      },
+      {
+        "rank": 2,
+        "name": "Carlos Mendes",
+        "sales": 165000,
+        "target": 150000,
+        "achievement": 110.0,
+        "region": "Sudeste"
+      },
+      {
+        "rank": 3,
+        "name": "Lucia Ferreira",
+        "sales": 142000,
+        "target": 150000,
+        "achievement": 94.7,
+        "region": "Nordeste"
+      },
+      {
+        "rank": 4,
+        "name": "Roberto Alves",
+        "sales": 138000,
+        "target": 150000,
+        "achievement": 92.0,
+        "region": "Centro-Oeste"
+      },
+      {
+        "rank": 5,
+        "name": "Fernanda Lima",
+        "sales": 125000,
+        "target": 150000,
+        "achievement": 83.3,
+        "region": "Norte"
+      }
+    ]
+  },
+  "timeline": {
+    "annualEvolution": [
+      {
+        "month": "Jan",
+        "revenue": 2100000,
+        "sales": 980000,
+        "availability": 82
+      },
+      {
+        "month": "Fev",
+        "revenue": 2300000,
+        "sales": 1050000,
+        "availability": 84
+      },
+      {
+        "month": "Mar",
+        "revenue": 2400000,
+        "sales": 1120000,
+        "availability": 86
+      },
+      {
+        "month": "Abr",
+        "revenue": 2200000,
+        "sales": 980000,
+        "availability": 83
+      },
+      {
+        "month": "Mai",
+        "revenue": 2600000,
+        "sales": 1180000,
+        "availability": 88
+      },
+      {
+        "month": "Jun",
+        "revenue": 2500000,
+        "sales": 1200000,
+        "availability": 87
+      }
+    ]
+  },
+  "alerts": [
+    {
+      "id": 1,
+      "type": "warning",
+      "message": "Equipe C está abaixo da meta de performance",
+      "priority": "medium",
+      "timestamp": "2024-01-15T09:15:00Z"
+    },
+    {
+      "id": 2,
+      "type": "info",
+      "message": "Novo recorde de vendas mensais atingido",
+      "priority": "low",
+      "timestamp": "2024-01-15T08:30:00Z"
+    },
+    {
+      "id": 3,
+        "type": "success",
+        "message": "Meta de lucro trimestral superada",
+        "priority": "high",
+        "timestamp": "2024-01-15T07:45:00Z"
+    }
+  ],
+  "kpis": {
+    "rh": {
+      "employeeSatisfaction": 8.2,
+      "trainingCompletion": 94,
+      "safetyIncidents": 0,
+      "diversityIndex": 0.68
+    },
+    "finance": {
+      "cashRatio": 1.8,
+      "debtToEquity": 0.45,
+      "roi": 18.5,
+      "operatingMargin": 28.0
+    },
+    "sales": {
+      "conversionRate": 12.5,
+      "customerRetention": 87.3,
+      "averageOrderValue": 125,
+      "salesVelocity": 14500
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

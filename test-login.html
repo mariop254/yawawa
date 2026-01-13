@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Login - Dashboard Mpinda Evata</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .test-container {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #4ecdc4;
+            margin-bottom: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #0f1419;
+            border-radius: 5px;
+        }
+        button {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success {
+            background: #10b981;
+            color: white;
+        }
+        .error {
+            background: #ef4444;
+            color: white;
+        }
+        .info {
+            background: #3b82f6;
+            color: white;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #4ecdc4;
+            background: #0f1419;
+            color: white;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔧 Teste de Login - Dashboard Mpinda Evata</h1>
+        
+        <div class="test-section">
+            <h3>1. Verificar Status do Servidor</h3>
+            <button onclick="testServerStatus()">Testar Status da API</button>
+            <div id="statusResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>2. Testar Login</h3>
+            <input type="email" id="testEmail" placeholder="Email" value="admin@mpindaevata.com">
+            <input type="password" id="testPassword" placeholder="Senha" value="admin123">
+            <br>
+            <button onclick="testLogin()">Testar Login</button>
+            <div id="loginResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>3. Testar Credenciais Padrão</h3>
+            <button onclick="testAllCredentials()">Testar Todas as Credenciais</button>
+            <div id="allResults" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>4. Verificar Console do Navegador</h3>
+            <p>Abra o Console do Navegador (F12) para ver logs detalhados</p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3002/api/auth';
+
+        async function testServerStatus() {
+            const resultDiv = document.getElementById('statusResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.textContent = 'Testando...';
+
+            try {
+                const response = await fetch(`${API_URL}/status`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = `✅ Servidor Online!\n\n${JSON.stringify(data, null, 2)}`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = `❌ Erro: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Erro de Conexão!\n\n${error.message}\n\nVerifique se o servidor está rodando na porta 3002.\nExecute: node simple-auth-server.js`;
+            }
+        }
+
+        async function testLogin() {
+            const email = document.getElementById('testEmail').value.trim().toLowerCase();
+            const password = document.getElementById('testPassword').value;
+            const resultDiv = document.getElementById('loginResult');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.textContent = `Testando login...\nEmail: ${email}\nSenha: ${password ? '***' : '(vazia)'}`;
+
+            try {
+                console.log('[TEST] Tentando login:', email);
+                
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                console.log('[TEST] Resposta:', data);
+                console.log('[TEST] Status:', response.status);
+
+                if (response.ok && data.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = `✅ Login Bem-sucedido!\n\n${JSON.stringify(data, null, 2)}`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = `❌ Login Falhou!\n\nStatus: ${response.status}\nErro: ${data.error || 'Erro desconhecido'}\n\nResposta completa:\n${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Erro de Conexão!\n\n${error.message}\n\nVerifique se o servidor está rodando na porta 3002.`;
+                console.error('[TEST] Erro:', error);
+            }
+        }
+
+        async function testAllCredentials() {
+            const credentials = [
+                { email: 'admin@mpindaevata.com', password: 'admin123' },
+                { email: 'rh@mpindaevata.com', password: 'rh123' },
+                { email: 'financeiro@mpindaevata.com', password: 'fin123' },
+                { email: 'vendas@mpindaevata.com', password: 'vendas123' }
+            ];
+
+            const resultDiv = document.getElementById('allResults');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.textContent = 'Testando todas as credenciais...\n\n';
+
+            let results = '';
+
+            for (const cred of credentials) {
+                try {
+                    const response = await fetch(`${API_URL}/login`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ 
+                            email: cred.email.trim().toLowerCase(), 
+                            password: cred.password 
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (response.ok && data.success) {
+                        results += `✅ ${cred.email} / ${cred.password} - SUCESSO\n`;
+                    } else {
+                        results += `❌ ${cred.email} / ${cred.password} - FALHOU: ${data.error}\n`;
+                    }
+                } catch (error) {
+                    results += `❌ ${cred.email} / ${cred.password} - ERRO: ${error.message}\n`;
+                }
+            }
+
+            resultDiv.className = 'result';
+            resultDiv.textContent = results;
+        }
+
+        // Testar status ao carregar
+        window.addEventListener('load', () => {
+            console.log('[TEST] Página de teste carregada');
+            console.log('[TEST] API URL:', API_URL);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,301 @@
+/* Financeiro Module Styles */
+
+/* Financial Metrics */
+.financial-metrics .metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+}
+
+.financial-metrics .metric-item:last-child {
+    margin-bottom: 0;
+}
+
+.financial-metrics .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.financial-metrics .value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.financial-metrics .trend {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+}
+
+/* Cash Flow */
+.turnover-card .card-content {
+    min-height: 120px;
+    height: auto;
+}
+
+.cash-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.flow-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    min-height: 50px;
+}
+
+.flow-item .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.flow-item .value {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-left: var(--spacing-md);
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Evolution Chart */
+.evolution-chart-container {
+    height: 200px;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.evolution-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.stat-month {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* Financial Section Cards */
+.section-card {
+    background: var(--secondary-color);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-normal);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--warning-color), var(--danger-color));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.section-card:hover::before {
+    opacity: 1;
+}
+
+.section-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    border-color: rgba(78, 205, 196, 0.4);
+    background: rgba(78, 205, 196, 0.05);
+}
+
+.section-card h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.section-card h3 i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.section-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Financial Forms */
+.financial-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-section {
+    background: var(--secondary-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.form-section h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.form-section h4 i {
+    color: var(--primary-color);
+}
+
+/* Financial Tables */
+.financial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.financial-table th,
+.financial-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.financial-table th {
+    background: rgba(78, 205, 196, 0.1);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.financial-table td {
+    color: var(--text-secondary);
+}
+
+.financial-table tr:hover {
+    background: rgba(78, 205, 196, 0.05);
+}
+
+/* Financial Summary */
+.financial-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.summary-card {
+    background: var(--secondary-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    text-align: center;
+}
+
+.summary-card h4 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.summary-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.summary-change {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Responsive Financial */
+@media (max-width: 768px) {
+    .evolution-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .financial-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .financial-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .financial-table {
+        font-size: 0.8rem;
+    }
+    
+    .financial-table th,
+    .financial-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .evolution-chart-container {
+        height: 150px;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .summary-value {
+        font-size: 1.4rem;
+    }
+}
