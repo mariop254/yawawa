@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sistema de Faturamento{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>📊 Dashboard</h2>
+    <div class="grid">
+        <div class="stat-card">
+            <div class="label">Total de Produtos</div>
+            <div class="number">{{ total_produtos }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Total de Clientes</div>
+            <div class="number">{{ total_clientes }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Total de Faturas</div>
+            <div class="number">{{ total_faturas }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Faturamento Total</div>
+            <div class="number">R$ {{ faturamento_total|default('0,00') }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>📈 Faturas Recentes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="faturasTable">
+            <tr>
+                <td colspan="6" style="text-align: center; color: #999;">Carregando...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

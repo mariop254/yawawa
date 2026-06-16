@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes - Sistema de Faturamento{% endblock %}
+
+{% block content %}
+<div class="grid">
+    <div class="card">
+        <h2>➕ Criar Novo Cliente</h2>
+        <form onsubmit="clienteManager.criarCliente(event)">
+            <div class="form-group">
+                <label for="clienteNome">Nome</label>
+                <input type="text" id="clienteNome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="clienteEmail">Email</label>
+                <input type="email" id="clienteEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="clienteCpfCnpj">CPF/CNPJ</label>
+                <input type="text" id="clienteCpfCnpj" name="cpf_cnpj" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar Cliente</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <h2>👥 Lista de Clientes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CPF/CNPJ</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="clientesTable">
+            <tr>
+                <td colspan="5" style="text-align: center; color: #999;">Carregando...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
