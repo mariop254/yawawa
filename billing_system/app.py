@@ -2,25 +2,30 @@
 
 from flask import Flask, render_template, jsonify, request
 from datetime import datetime
-from importlib import import_module
 import sys
 import os
 
 # Adicionar diretório ao path para importações relativas
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from database import init_db, get_database_url
-from repositories import (
+# Importações da camada de infraestrutura
+from infrastructure.database import init_db, get_database_url, db
+from infrastructure.models import ProdutoModel, ClienteModel, FaturaModel, ItemFaturaModel
+from infrastructure.repositories import (
     ProdutoRepository,
     ClienteRepository,
     FaturaRepository,
 )
-from use_cases import (
+
+# Importações da camada de aplicação
+from core.application.use_cases import (
     CriarFaturaUseCase,
     FinalizarFaturaUseCase,
     ListarFaturasUseCase,
 )
-from entities import Produto, Cliente
+
+# Importações da camada de domínio
+from core.domain.entities import Produto, Cliente
 
 # Inicializar Flask
 app = Flask(__name__)
@@ -101,6 +106,7 @@ def api_get_produtos():
             'ativo': p.ativo
         } for p in produtos])
     except Exception as e:
+        print(f"Erro ao listar produtos: {e}")
         return jsonify({'erro': str(e)}), 500
 
 
@@ -118,6 +124,7 @@ def api_criar_produto():
         produto_repo.salvar(produto)
         return jsonify({'id': produto.id, 'mensagem': 'Produto criado com sucesso'}), 201
     except Exception as e:
+        print(f"Erro ao criar produto: {e}")
         return jsonify({'erro': str(e)}), 400
 
 
@@ -138,6 +145,7 @@ def api_get_clientes():
             'ativo': c.ativo
         } for c in clientes])
     except Exception as e:
+        print(f"Erro ao listar clientes: {e}")
         return jsonify({'erro': str(e)}), 500
 
 
@@ -155,6 +163,7 @@ def api_criar_cliente():
         cliente_repo.salvar(cliente)
         return jsonify({'id': cliente.id, 'mensagem': 'Cliente criado com sucesso'}), 201
     except Exception as e:
+        print(f"Erro ao criar cliente: {e}")
         return jsonify({'erro': str(e)}), 400
 
 
@@ -178,6 +187,7 @@ def api_get_faturas():
             'quantidade_itens': len(f.itens)
         } for f in faturas])
     except Exception as e:
+        print(f"Erro ao listar faturas: {e}")
         return jsonify({'erro': str(e)}), 500
 
 
@@ -197,6 +207,7 @@ def api_criar_fatura():
             'total': fatura.calcular_total()
         }), 201
     except Exception as e:
+        print(f"Erro ao criar fatura: {e}")
         return jsonify({'erro': str(e)}), 400
 
 
@@ -212,6 +223,7 @@ def api_finalizar_fatura(id):
             'total': fatura.calcular_total()
         })
     except Exception as e:
+        print(f"Erro ao finalizar fatura: {e}")
         return jsonify({'erro': str(e)}), 400
 
 
@@ -232,4 +244,6 @@ def internal_error(error):
 
 
 if __name__ == '__main__':
+    print("🚀 Iniciando Sistema de Faturamento...")
+    print("📍 Acesse: http://localhost:5000")
     app.run(debug=True, host='localhost', port=5000)
